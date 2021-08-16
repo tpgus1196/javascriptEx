@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background: #ff9a9a;
+      margin-top: 2rem;
+    }
+  
+  
+  
+  </style>
+</head>
+<body>
+ 
+<!-- button.*2+p-->
+ <button class="hide">hide</button>
+ <button class="show">show</button>
+<!-- <p>SHOW & HIDE</p>-->
+ <div class="box"></div>
+ 
+ 
+  <script>
+    
+/*//$(제어대상).이벤트(function(){})
+  $(document).ready(function(){
+    
+    //.hide를 클릭하면 p태그가 hide되도록
+    $(".hide").click(function(){
+      $("p").toggle(500)
+    })
+    $(".show").click(function(){
+      $("p").show("fast")
+    })
+    
+  })*/
+   
+  $(document).ready(function(){
+    
+    //.hide를 클릭하면 .box가 부드럽게 사라지도록
+    $(".hide").click(function(){
+      $(".box").fadeOut(1000)
+    })
+    
+    $(".show").click(function(){
+      $(".box").fadeIn(500)
+    })
+    
+    
+  })
+    
+    
+  </script>
+</body>
+</html>
