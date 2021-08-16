@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function score(name,kor,man,art){
+    
+    var sum = kor+man+art
+    aver = Math.round(sum/3)
+    
+    document.write(name+"의 점수표<br>")
+    document.write("국어점수 : "+kor+"점<br>")
+    document.write("도덕점수 : "+man+"점<br>")
+    document.write("예술점수 : "+art+"점<br>")
+    document.write("합계점수 : "+sum+"점<br>")
+    document.write("평균점수 : "+aver+"점<br>")
+    
+    if(aver>=80){
+      document.write("합격:)")
+    }else{
+      document.write("불합격:(")
+    }
+  
+    document.write("<br><br><br>")
+//  위에 적어줘도 됨
+  }
+    
+  score("둘리",65, 78, 90)  
+  score("또치",85, 70, 97)  
+  
+  
+  </script>
+</body>
+</html>
