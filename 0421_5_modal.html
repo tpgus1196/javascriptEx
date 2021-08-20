@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>모달 팝업 창</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body{font-size: 12px;}
+    h1,h2,h3,h4,h5,h6{font-size: 100%;}
+    img{vertical-align: bottom;}
+    button{border: none; background: transparent;}
+  
+    .open{
+      font-size: 2rem;
+      border: 2px solid;
+      padding: 2rem 3rem;
+      margin: 2rem;
+    }
+    
+    .open:hover{
+      box-shadow: 2px 2px 10px #999; 
+    }
+    
+    #modal{
+      position: fixed;
+/*      └스크롤에 상관없이 다른 컨텐츠 위에 올라와 있어야 하는 상태. absolute도 상관없다.*/
+      top:0;bottom:0;left: 0;right: 0;
+/*      └네개의 면(전체화면)에 달라붙어 전체화면 크기와 동일한 상태로 만들어주는 것.*/
+      background: rgba(0, 0, 0, 0.72);
+      
+/*    -------------------여기까지가 모달 기본셋팅*/
+      
+      
+      display: none;
+/*      └css셋팅 모두 끝낸 후에 당장은 화면에서 보이면 안되는 컨텐츠이므로 통째로 보이지 않게 display: none으로 설정해 주어야 하낟.*/
+      
+    }
+    
+    #popup{
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+/*    └정중앙 이동 공식*/
+      background: #fff;
+      width: 500px;
+      text-align: center;
+/*      └상속되는 속성. 자식정렬 자동*/
+      padding: 4rem;
+      border-radius: 60px;
+      box-shadow: 4px 4px 20px #999;
+    }
+    #popup h3{
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    #popup img{
+      width: 100%;
+/*      부모태그(popup) 크기 그대로 따라가기*/
+    }
+    #popup .close{
+      border: 1px solid;
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      margin-top: 3rem;
+      border-radius: 30px;
+    }
+    
+    .close:hover{
+      background: #000;
+      color: #fff;
+    }
+  
+  </style>
+  
+</head>
+<body>
+  
+<!--  button+#modal-->
+  <button class="open">click</button>
+  <div id="modal">
+    
+<!--  #popup>h3+img+button  -->
+  <div id="popup"> 
+    <h3>앞산 전망대 야경 탐사 모집</h3>
+    <img src="nights2.jpg" alt="">
+    <button class="close">close</button>
+  </div>  
+    
+  </div>
+  
+  
+  <script>
+  $(document).ready(function(){
+  
+    //.open을 클릭하면 #modal이 부드럽게 나타나도록
+    $(".open").click(function(){
+      $("#modal").fadeIn()
+    })
+    
+    //.close를 클릭하면 #modal이 부드럽게 사라지도록
+    
+    $(".close").click(function(){
+      $("#modal").fadeOut()
+    })
+    
+    
+    
+  })
+  
+
+  </script>
+</body>
+</html>
