@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <style>
+  
+    *{margin: 0;padding: 0;}
+    html,body{font-size: 12px;}
+    button{border: none; background: transparent;}
+    
+    #btn{
+      position: fixed;
+      top: 3%;
+      left: 3%;
+    }
+    #btn button{
+      border: 2px solid;
+      font-size: 1.8rem;
+      padding: 2rem;
+      border-radius: 20px;
+    }
+    
+    #box{}
+    #box div{
+      width: 100%;
+      height: 1000px;
+      font-size: 10rem;
+      text-align: center;
+    }
+    #box .con1{
+      background: #f4a6a6;
+    }
+    #box .con2{
+      background: #ffed87;
+    }
+    #box .con3{
+      background: #86b0ff;
+    }
+  
+  
+  
+  </style>
+</head>
+<body>
+<!-- #btn+#box-->
+ <div id="btn">
+<!--   button{$번으로 이동}*3-->
+   <button onclick="moves(1)">1번으로 이동</button>
+   <button onclick="moves(2)">2번으로 이동</button>
+   <button onclick="moves(3)">3번으로 이동</button>
+ </div>
+ 
+ <div id="box">
+<!--   .con${No.$}*3-->
+   <div class="con1">No.1</div>
+   <div class="con2">No.2</div>
+   <div class="con3">No.3</div>
+ </div>
+ 
+ <script>
+  /*onclick "함수" 
+  > $(document).ready~ 필요없음.
+   함수: function onclick이름(매개변수=seq){실행문장
+   =1. 클릭했을 때(onclick) 반응할 태그를 변수로 지정
+    2. 클릭했을 때 위의 변수가 어떻게 반응할지를 지정}*/
+  
+   function moves(seq){
+     var box = $(".con"+seq).offset()
+     //moves(1)을 클릭하면 .con1의 위치값이~
+     
+     //document에는 애니메이트 못함
+     $("html,body").animate({
+       scrollTop: box.top
+       //box는 변수. ""안에 안넣음
+     })
+   }
+  
+  
+  
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body{font-size: 12px;}
+    ol,ul{list-style: none;}
+    img{vertical-align: bottom;}
+    #wave{
+      width: 960px;
+      margin: auto;
+    }
+    #wave li{
+      width: 300px;
+      float: left;
+      background: #000;
+      position: relative;
+/*      └span태그의 위치 기준 값*/
+      overflow: hidden;
+/*      └호버했을 때 삐져나가는 img 태그들을 잘라서 없애주기 위해. 크기값이 있어야 한다.*/
+      height: 180px;
+    }
+    #wave li img{
+      width: 100%;
+      position: absolute;
+/*      └위치값 옮기려고*/
+      top: 0;
+      left: 0;
+    }
+    
+    #wave li+li{
+      margin-left: 30px;
+    }
+    #wave li span{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-size: 1.8rem;
+      color: #fff;
+      opacity: 0;
+    }
+  
+  
+  
+  </style>
+</head>
+<body>
+<!-- ul#wave>li*3>img+span{WAVE}-->
+ <ul id="wave">
+   <li><img src="wave1.jpg" alt=""><span>WAVE</span></li>
+   <li><img src="wave2.jpg" alt=""><span>WAVE</span></li>
+   <li><img src="wave3.jpg" alt=""><span>WAVE</span></li>
+ </ul>
+  
+  <script>
+  $(document).ready(function(){
+    $("#wave li").hover(function()
+        //마우스를 갖대댔을때의 function, 내가 hover한 li 하위에있는 이미지태그(this, find)
+      {$(this).find("img").animate({
+        opacity:"0.6",
+        width:"350px",
+        left:"-25px",
+        top:"-10px"
+      })
+       $(this).find("span").animate({
+         opacity:"1"
+       })
+      
+      
+      
+    },function(){
+//      마우스를 뗐을때의 function
+      $(this).find("img").animate({
+        opacity:"1",
+        width:"300px",
+        left:"0",
+        top:"0"
+      })
+       $(this).find("span").animate({
+         opacity:"0"
+       })
+      
+    })
+    
+    
+    
+    
+    
+  })
+  
+  
+  </script>
+  
+  
+</body>
+</html>

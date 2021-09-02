@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <style>
+  
+    *{margin: 0;padding: 0;}
+    html, body{font-size: 12px;}
+    ol,ul{list-style: none;}
+    h1,h2,h3,h4,h5,h6{font-size: 100%;}
+    
+    #menu{
+      width: 300px;
+      margin: 100px auto;
+      background: #f79191;
+      text-align: center;
+      padding: 2rem ;
+
+      
+    }
+    #menu h3{
+      font-size: 1.5rem;
+      border: 1px solid #000;
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+    }
+    #menu ul{
+      display: none;
+/*      └li들이 없어진다.*/
+    }
+    #menu ul li{
+      font-size: 1.3rem;
+      line-height: 40px;
+      background: #fff;
+    }
+    
+    #menu li:hover{
+      background: #eee;
+    }
+  
+  
+  </style>
+</head>
+<body>
+<!-- {텍스트젠코딩}-->
+<!--  #menu>h3+ul>li{sub menu$}*4-->
+  <div id="menu">
+    <h3>MENU</h3>
+    <ul>
+      <li>sub menu1</li>
+      <li>sub menu2</li>
+      <li>sub menu3</li>
+      <li>sub menu4</li>
+    </ul>
+  </div>
+  
+  <script>
+  $(document).ready(function(){
+    
+  /*//#menu h3에게 마우스를 갖다대면, #menu ul이 부드럽게 내려오도록
+    $("#menu").mouseenter(function(){
+      $("#menu ul").slideDown()
+    })
+    
+    $("#menu").mouseleave(function(){
+      $("#menu ul").slideUp()
+    })
+    
+//#menu h3가 안적혀있어야 메인+서브 대상으로 호버 먹힘.(부모태그에 호버)*/
+    
+    $("#menu").hover(function(){
+      $("#menu ul").stop().slideToggle()
+      
+    })
+    
+    
+    
+    
+  })
+  
+    
+    
+  
+  
+  </script>
+  
+  
+  
+  
+</body>
+</html>
