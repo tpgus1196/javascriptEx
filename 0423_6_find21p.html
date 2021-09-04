@@ -15,18 +15,21 @@
     }
     #wave li{
       width: 300px;
+      /*└얘 넓이를 설정해줘야 float left가 먹힘(이미지 크기가 줄어들지는 않음)*/
       float: left;
       background: #000;
       position: relative;
-/*      └span태그의 위치 기준 값*/
+      /*└span태그의 위치 기준 값 (지정된 li영역 내에서 움직임)*/
+      /*└안해주면 아래에서 absolute 걸기 때문에 다시 크기가 자유분방해짐.. 범위 제한을 위해 직속 부모태그에 relative 걸어줌*/
       overflow: hidden;
-/*      └호버했을 때 삐져나가는 img 태그들을 잘라서 없애주기 위해. 크기값이 있어야 한다.*/
+      /*└호버했을 때 삐져나가는 img 태그들을 잘라서 없애주기 위해. 크기값이 있어야 한다.*/
       height: 180px;
     }
     #wave li img{
       width: 100%;
+      /*└위에 부모 크기를 물려받아 크기가 줄어듦*/
       position: absolute;
-/*      └위치값 옮기려고*/
+      /*└위치값 옮기려고*/
       top: 0;
       left: 0;
     }
@@ -39,6 +42,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
+      /*└가운데 정렬 공식*/
+      
       font-size: 1.8rem;
       color: #fff;
       opacity: 0;
@@ -57,10 +62,10 @@
  </ul>
   
   <script>
-  $(document).ready(function(){
-    $("#wave li").hover(function()
+  $(document).ready(function(){ //ready와 function의 차이..
+    $("#wave li").hover(function() //hover와 function의 차이도..
         //마우스를 갖대댔을때의 function, 내가 hover한 li 하위에있는 이미지태그(this, find)
-      {$(this).find("img").animate({
+      {$(this).find("img").animate({ //animate와 find의 차이는 뭐길래 뒤에 괄호가 다를까?
         opacity:"0.6",
         width:"350px",
         left:"-25px",
@@ -72,7 +77,7 @@
       
       
       
-    },function(){
+    },function(){ //hover 안할때 기능추가. 근데 이 위치에 이렇게만 적어도 괜찮은가..
 //      마우스를 뗐을때의 function
       $(this).find("img").animate({
         opacity:"1",
