@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body{font-size: 12px;}
+    ol,ul{list-style: none;}
+    a{color: inherit;text-decoration: none;}
+    img{vertical-align: bottom;}
+    button{border: none; background: transparent;}
+    
+    #btn{
+      margin: 50px;
+      width: 50px;
+/*      └block태그기 때문에 기본 가로값이 100%여서 같은 라인을 호버하기만해도 span태그들이 변해서 오류처럼 보일 수 있다.*/
+/*      그러므로 span태그의 영역과 동일한 크기로 설정하여 쓸데없는 움직임을 없앤다.*/
+    }
+    #btn span{
+      display: block;
+      width: 50px;
+      height: 10px;
+      background: #000;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+    
+    #btn:hover .bar1{
+      transform: rotate(90deg) 
+        translateX(20px);
+    }
+    #btn:hover .bar2{
+      opacity: 0;
+    }
+    #btn:hover .bar3{
+      transform:translateY(-20px);
+/*    픽셀단위 꼭 붙이기. 마진10 + span 높이20 */
+        
+    }
+    
+    
+    #side{
+      width: 300px;
+      background: #000;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: -300px;
+/*      └안보이도록 가로값만큼 빼줌.애니메이트할때 0으로 줘서 들어오게하기. 맨 왼족에서부터 들어오도록 300px아님!*/
+    }
+    
+    #side button{
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      transition: 0.3s;
+    }
+    #side button:hover{
+      transform: rotate(45deg);
+    }
+    
+    #side ul{
+      margin-top: 20rem;
+    }
+    #side li a:hover{
+      background: #111;
+    }
+    #side ul li a{
+      display: block;
+      font-size: 1.7rem;
+      line-height: 60px;
+      padding-left: 3rem;
+    }
+  
+  
+  
+  </style>
+</head>
+<body>
+<!--#btn+#side-->
+  <div id="btn">
+<!--span.bar$*3-->
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+    
+    
+  </div>
+  <div id="side">
+<!--button+ul-->
+    <button>
+      <img src="x_img.png" alt="">
+    </button>
+    <ul>
+<!--li>a[#]*5-->
+      <li>
+        <a href="#">ABOUT</a>
+        <a href="#">STORE</a>
+        <a href="#">COMMUNITY</a>
+        <a href="#">LOCATION</a>
+        <a href="#">NOTICE</a>
+      </li>
+    </ul>
+  </div>
+  
+  <script>
+    $(document).ready(function(){
+      
+      $("#btn").click(function(){
+        $("#side").animate({
+          left: "0"
+//          └화면시작지점부터 나와야하기때문
+        })
+      })
+      
+      $("#side button").click(function(){
+        $("#side").animate({
+          left:"-300px"
+        })
+      })
+      
+      
+    })
+  
+  
+  </script>
+  
+  
+  
+</body>
+</html>
