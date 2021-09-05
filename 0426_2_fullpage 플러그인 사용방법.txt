@@ -1,0 +1,21 @@
+< 감성커피 메인페이지 참고 >
+	
+* fullpage 플러그인 사용방법
+
+ 1. fullpage 홈페이지에서 zip파일 다운로드
+ 2. 작업 폴더에 fullpage zip파일 압축풀기
+ 3. 압축 푼 폴더의 이름을 fullpage로 간단하게 바꾸기
+ 4. 슬라이드 넘길 태그들에게 .section 이름 주기
+ 5. 슬라이드 넘길 태그들의 부모태그 만들어주기 (이름 必)
+ 6. 외부 스크립트로 fullpage/dist/fullpage.min.js 연결
+ 7. 내/외부 스크립트 구문 작성
+    $(document).ready(function(){$('부모태그').fullpage()})
+
+
+keyboardScrolling (true/false)
+: 키보드 방향키(+스페이스바)로 풀페이지 컨트롤 작동 여부
+	└풀페이지에서 지원해주는 css속성..
+		.fullpage({여기에 입력})
+
+scrollingSpeed (number)
+:  풀페이지 화면이 전환되는 속도(1000 = 1초)
