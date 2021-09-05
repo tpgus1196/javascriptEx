@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bxslider</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <script src="bxslider/dist/jquery.bxslider.min.js"></script>
+  <link rel="stylesheet" href="bxslider/dist/jquery.bxslider.css">
+  
+  <script>
+  $(document).ready(function(){
+    
+    $("#slide").bxSlider({
+     /* //└가로값 100%. 크기조정하려면 css에서 부모태그의 크기 조절해야함.
+      /*auto: true,
+        //└불리언.""필요없음
+      autoControls: true*/
+     /* minSlides : 2,
+      maxSlides : 3,
+      slideWidth : 400,
+      slideMargin : 10,
+//      wrap에 크기값때문에 최대값 있어도 두개밖에 안나옴
+      /*ticker : true,
+      speed : 10000,
+      tickerHover: true,*/
+      //mode: "vertical"
+      //티커 없어야 적용가능*/*/
+      pagerCustom: "#pager"
+//      페이저 동그라미를 그림으로 대체
+    })
+      
+  })
+  
+  
+  </script>
+  
+  <style>
+/*    css적용한것*/
+    #wrap{
+      width: 800px;
+      margin: auto;
+    }
+    
+    #pager{
+      overflow: hidden;
+      padding: 0 14.5rem;
+    }
+    #pager a{
+      float: left;
+/*      인라인태그 - 플롯 -블록으로 변화 - 크기 먹힘*/
+      width: 80px;
+      margin: 0 1rem;
+    }
+    #pager a img{
+      width: 100%;
+    }
+  
+  
+  </style>
+  
+</head>
+<body>
+ 
+ <div id="wrap">
+<!-- #slide>img*3-->
+ <div id="slide">
+   <img src="wave1.jpg" alt="">
+   <img src="wave2.jpg" alt="">
+   <img src="wave3.jpg" alt="">
+ </div>
+ 
+<!-- #pager>a[#]*3>img-->
+ <div id="pager">
+   <a href="#" data-slide-index="0"><img src="wave1.jpg" alt=""></a>
+   <a href="#" data-slide-index="1"><img src="wave2.jpg" alt=""></a>
+   <a href="#" data-slide-index="2"><img src="wave3.jpg" alt=""></a>
+ </div>
+ 
+</div>
+</body>
+</html>
