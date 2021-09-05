@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery-3.6.0.min.js"></script>
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body{font-size: 12px;}
+    ol,ul{list-style: none;}
+    
+    #wrap{
+      width: 800px;
+      margin: 80px auto;
+    }
+    .list{
+      overflow: hidden;
+      border: 1px solid #ccc;
+    }
+    .list li{
+      float: left;
+      width: 25%; 
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 50px;
+/*      └패딩으로 줘도 상관없다. 위아래 간격*/
+      box-sizing: border-box;
+/*
+      └내가 지정한 태그의 크기 안에서 보더와 패딩이 생기게 하는 것.
+      원래는 태그 크기 + 보더 + 패딩
+*/
+      cursor: pointer;
+/*      클릭하기전에 손가락모양으로 커서 변경*/
+    }
+    .list li+li{
+      border-left: 1px solid #ccc;
+      
+    }
+    .list li:first-child{
+      background: #000;
+      color: #fff;
+    }
+    
+    .cont{
+      position: relative;
+/*      박스들의 위치, 크기 기준 값.*/
+      margin-top: 4rem;
+    }
+    .cont div{
+      width: 100%;
+      line-height: 600px;
+      text-align: center;
+      font-size: 5rem;
+      position: absolute;
+/*      └박스들 하나로 보이도록 겹치기, 크기가 늘어난다 브라우저 100%값으로*/
+    
+    }
+    .cont .box1{
+      background: #fa9e9e;
+      z-index: 1;
+/*      박스들 순서 정하기.zindex 기본값은 0이라 1만 줘도 맨 위로 올라간다.*/
+    }
+    .cont .box2{
+      background: #ffffc4;
+    }
+    .cont .box3{
+      background: #a6ffb4;
+    }
+    .cont .box4{
+      background: #8a98ff;
+    }
+  
+  
+  
+  </style>
+</head>
+<body>
+  
+  <!--#wrap>ul.list+.cont-->
+  <div id="wrap">
+    <ul class="list">
+      <!--li{menu $}*4-->
+      <li onmouseover="tab(1)" class="menu1">menu 1</li>
+      <li onmouseover="tab(2)" class="menu2">menu 2</li>
+      <li onmouseover="tab(3)" class="menu3">menu 3</li>
+      <li onmouseover="tab(4)" class="menu4">menu 4</li>
+    </ul>
+    <div class="cont">
+      <!--.box${BOX $}*4-->
+      <div class="box1">BOX 1</div>
+      <div class="box2">BOX 2</div>
+      <div class="box3">BOX 3</div>
+      <div class="box4">BOX 4</div>
+    </div>
+  </div>
+  
+  <script>
+  /*onmouseover함수
+  
+  body태그안의 태그들 셋팅
+  1.클릭할 태그 onmouseover = 이름(숫자)
+  2.변화가 생길 태그./#"이름숫자"
+  
+  *script 구문 작성
+  1.함수 만들기
+  function onmouseover 이름(seq){
+  2.클릭할 때 변화가 생길 태그를 변수로 지정
+  3.위의 변수를 어떻게 변화시킬지를 지정
+  }*/
+//  seq=숫자가 들어갈것이라는 무언의 약속 변수
+    function tab(seq){
+      var menus = $(".menu"+seq)
+      var boxs = $(".box"+seq)
+      //    탭1 들어가면 메뉴1번,box1번 반응한다.
+      
+      $(menus).css({
+        background:"#000",
+        color:"#fff"
+      })
+      $(menus).siblings().css({
+        background:"#fff",
+        color:"#000"
+      })
+      //└내가 클릭한 그 숫자에 해당하는 menus (.menu$)의 css를 배경:검정, 글자:흰색으로 바꾸고
+      //└내가 클릭한 menus빼고 나머지 형제들의 css는 배경:흰색, 글자:검은색으로 바꾸겠다.
+      $(boxs).css({
+        zIndex:"4"
+      })
+      $(boxs).siblings().css({
+        zIndex:"1"
+      })
+    }
+    
+
+  
+  
+  
+  </script>
+  
+</body>
+</html>
